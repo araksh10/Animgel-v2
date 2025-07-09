@@ -1,0 +1,19 @@
+#logo {
+    stroke: #fff;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: textAnimate 5s ease-in-out infinite forwards;
+}
+
+@keyframes textAnimate {
+    0% {
+        stroke-dashoffset: 250;
+    }
+    60% {
+        fill:transparent;
+    }
+    80% {
+        stroke-dashoffset: 0;
+        fill: #fff;
+    }
+}
