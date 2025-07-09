@@ -1,23 +1,15 @@
+import { useQuery } from "@apollo/client";
 import Button from "./Button";
-import { gql, useQuery } from "@apollo/client";
+import { GET_ALL_GENRE_QUERY } from "../queries/Query";
 
-const getGenreQuery = gql`
-	{
-		genres {
-			id
-			name
-		}
-	}
-`;
-
-const GenreList = () => {
-	const { data, loading, error } = useQuery(getGenreQuery);
+const GenreList = ({ onSettingGenre }) => {
+	const { data, loading, error } = useQuery(GET_ALL_GENRE_QUERY);
 
 	if (loading) return "Loading Genres ...";
 	if (error) return `Error: ${error.message}`;
 
 	const searchByGenre = (genreID) => {
-		// onSettingGenre(genreID);
+		onSettingGenre(genreID);
 	};
 
 	return (

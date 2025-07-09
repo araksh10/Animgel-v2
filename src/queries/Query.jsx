@@ -22,6 +22,23 @@ const GET_ALL_ANIME_QUERY = gql`
 	}
 `;
 
+const GET_ALL_ANIME_BY_GENRE_QUERY = gql`
+	query animesByGenre($id: ID!) {
+		genre(id: $id) {
+			id
+			name
+			animes {
+				id
+				name
+				image
+				genres {
+					name
+				}
+			}
+		}
+	}
+`;
+
 const GET_ANIME_QUERY = gql`
 	query anime($id: ID!) {
 		anime(id: $id) {
@@ -44,4 +61,18 @@ const GET_ANIME_QUERY = gql`
 	}
 `;
 
-export { GET_ALL_ANIME_QUERY, GET_ANIME_QUERY };
+const GET_ALL_GENRE_QUERY = gql`
+	{
+		genres {
+			id
+			name
+		}
+	}
+`;
+
+export {
+	GET_ALL_ANIME_QUERY,
+	GET_ALL_ANIME_BY_GENRE_QUERY,
+	GET_ANIME_QUERY,
+	GET_ALL_GENRE_QUERY,
+};
