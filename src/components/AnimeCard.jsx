@@ -8,9 +8,11 @@ const AnimeCard = ({ anime }) => {
 			/>
 			<div className="bg-sky-600 text-center flex-1 flex flex-col justify-between p-2">
 				<h4 className="font-bold text-lg truncate">{anime.name}</h4>
-				<p className="capitalize text-sm break-words line-clamp-2">
-					Genres: {anime.genres.map((genre) => genre.name).join(", ")}
-				</p>
+				{anime.genres && (
+					<p className="capitalize text-sm break-words line-clamp-2">
+						Genres: {anime.genres.map((genre) => genre.name).join(", ")}
+					</p>
+				)}
 			</div>
 		</div>
 	);

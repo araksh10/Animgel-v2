@@ -1,5 +1,6 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Anime from "./pages/Anime";
 import Home from "./pages/Home";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 

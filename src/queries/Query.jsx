@@ -40,7 +40,7 @@ const GET_ALL_ANIME_BY_GENRE_QUERY = gql`
 `;
 
 const GET_ANIME_QUERY = gql`
-	query anime($id: ID!) {
+	query getAnime($id: ID!) {
 		anime(id: $id) {
 			id
 			name
@@ -70,9 +70,26 @@ const GET_ALL_GENRE_QUERY = gql`
 	}
 `;
 
+const GET_STUDIO_QUERY = gql`
+	query GetStudio($id: ID!) {
+		studio(id: $id) {
+			id
+			name
+			logo
+			details
+			animes {
+				id
+				name
+				image
+			}
+		}
+	}
+`;
+
 export {
 	GET_ALL_ANIME_QUERY,
 	GET_ALL_ANIME_BY_GENRE_QUERY,
 	GET_ANIME_QUERY,
 	GET_ALL_GENRE_QUERY,
+	GET_STUDIO_QUERY,
 };
