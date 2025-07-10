@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-	uri: "http://localhost:4000/graphql",
+	uri: "https://animgel-api-v2.onrender.com/graphql",
 	cache: new InMemoryCache(),
 });
 
