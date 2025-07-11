@@ -1,8 +1,12 @@
 import "../styles/Logo.css";
+import Animgel from "../assets/Animgel.svg";
 
 const Navbar = (props) => {
 	return (
 		<div className="flex justify-center bg-sky-800">
+			<section className="abosolute left-0 mx-8 animate-pulse">
+				<img className="size-20" src={Animgel} alt="logo" />
+			</section>
 			<section className="my-2">
 				{/* <svg
 					width="226"
