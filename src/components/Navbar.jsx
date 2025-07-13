@@ -1,12 +1,13 @@
 import "../styles/Logo.css";
 import Animgel from "../assets/Animgel.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
 	return (
 		<div className="flex justify-center bg-sky-800">
-			<section className="abosolute left-0 mx-8 animate-pulse">
+			<Link to="/" className="abosolute left-0 mx-8">
 				<img className="size-20" src={Animgel} alt="logo" />
-			</section>
+			</Link>
 			<section className="my-2">
 				{/* <svg
 					width="226"
