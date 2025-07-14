@@ -2,6 +2,7 @@ import { useQuery, useLazyQuery } from "@apollo/client";
 import { GET_ANIME_QUERY, GET_STUDIO_QUERY } from "../queries/Query";
 import { useEffect } from "react";
 import AnimeCard from "../components/AnimeCard";
+import { Link } from "react-router-dom";
 
 const Anime = () => {
 	// Step 1: Load anime
@@ -90,7 +91,7 @@ const Anime = () => {
 					)}
 					{studio ? (
 						<div>
-							<div className="flex items-center gap-4">
+							<Link to="/Studio" className="flex items-center gap-4">
 								<img
 									src={studio.logo}
 									alt={studio.name}
@@ -100,8 +101,8 @@ const Anime = () => {
 									<h4 className="text-xl font-bold">{studio.name}</h4>
 									<p>All anime by this studio:</p>
 								</div>
-							</div>
-							<div className="list-disc list-inside">
+							</Link>
+							<div className="flex flex-wrap list-disc list-inside">
 								{studio.animes.slice(0, 3).map((anime) => (
 									<AnimeCard key={anime.id} anime={anime} />
 								))}
@@ -110,9 +111,6 @@ const Anime = () => {
 					) : !loadingStudio ? (
 						<p>No studio information available.</p>
 					) : null}
-				</div>
-				<div className="">
-					<p>{studio?.details}</p>
 				</div>
 			</div>
 		</div>

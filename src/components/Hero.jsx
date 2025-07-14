@@ -46,7 +46,7 @@ const Hero = () => {
 			>
 				{/* Background Image */}
 				<img
-					src={anime.image}
+					src={anime?.image}
 					alt="One Piece"
 					className="absolute top-0 right-0 h-full object-cover"
 				/>

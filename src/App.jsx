@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Anime from "./pages/Anime";
 import Home from "./pages/Home";
+import Studio from "./pages/Studio";
 // importing Apollo Client
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 // importing React-Router-Dom
@@ -23,6 +24,7 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/Home" element={<Home />} />
 						<Route path="/Anime" element={<Anime />} />
+						<Route path="/Studio" element={<Studio />} />
 					</Routes>
 					<Footer />
 				</div>
