@@ -90,7 +90,10 @@ const Anime = () => {
 					)}
 					{studio ? (
 						<div>
-							<Link to="/Studio" className="flex items-center gap-4">
+							<Link
+								to={`/Studio/${studio.id}`}
+								className="flex items-center gap-4"
+							>
 								<img
 									src={studio.logo}
 									alt={studio.name}

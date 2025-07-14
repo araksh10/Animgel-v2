@@ -1,35 +1,49 @@
 import { useQuery } from "@apollo/client";
 import { GET_STUDIO_QUERY } from "../queries/Query";
 import AnimeCard from "../components/AnimeCard";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { fetchStudio } from "../features/studio/StudioSlice";
 
 const Studio = () => {
-	const { data, loading, error } = useQuery(GET_STUDIO_QUERY, {
-		variables: { id: "686ec09df8b51c931fb9ccb5" },
-	});
+	const { studio, isLoading, isError, error } = useSelector(
+		(state) => state.studio
+	);
+	const dispatch = useDispatch();
+	const { studioId } = useParams();
 
-	if (loading) return "Loading studio...";
-	if (error) return `Error Loading Studio: ${error.message}`;
+	useEffect(() => {
+		dispatch(fetchStudio(studioId));
+	}, [dispatch, studioId]);
+
+	// const { data, loading, error } = useQuery(GET_STUDIO_QUERY, {
+	// 	variables: { id: "686ec09df8b51c931fb9ccb5" },
+	// });
+
+	if (isLoading) return "Loading studio...";
+	if (isError) return `Error Loading Studio: ${error.message}`;
 	return (
 		<div>
 			<div>
-				<h2 className="text-2xl font-extrabold text-center m-2 p-2 bg-sky-800 rounded-full">
-					{data?.studio?.name}
+				<h2 className="text-2xl font-extrabold text-center mx-20 my-2 p-2 bg-sky-800 rounded-full">
+					{studio?.name}
 				</h2>
 			</div>
 			<div className="flex justify-around">
 				<img
-					className="rounded-full w-65 m-4"
-					src={data?.studio?.logo}
-					alt={data?.studio?.name}
+					className="rounded-full w-35 h-35 m-4"
+					src={studio?.logo}
+					alt={studio?.name}
 				/>
-				<p className="m-2">{data?.studio?.details}</p>
+				<p className="m-2">{studio?.details}</p>
 			</div>
 			<div>
 				<h4 className="text-xl font-bold italic mx-4 my-2">
-					Anime by {data?.studio?.name}:
+					Anime by {studio?.name}:
 				</h4>
 				<section className="flex flex-wrap">
-					{data?.studio?.animes?.map((anime) => (
+					{studio?.animes?.map((anime) => (
 						<AnimeCard key={anime.id} anime={anime} />
 					))}
 				</section>
