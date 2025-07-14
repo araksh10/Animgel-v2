@@ -5,14 +5,10 @@ import Anime from "./pages/Anime";
 import Home from "./pages/Home";
 import Studio from "./pages/Studio";
 // importing Apollo Client
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
+import client from "./app/ApolloClient";
 // importing React-Router-Dom
 import { BrowserRouter as BRouter, Route, Routes } from "react-router-dom";
-
-const client = new ApolloClient({
-	uri: "https://animgel-api-v2.onrender.com/graphql",
-	cache: new InMemoryCache(),
-});
 
 function App() {
 	return (
@@ -23,7 +19,7 @@ function App() {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/Home" element={<Home />} />
-						<Route path="/Anime" element={<Anime />} />
+						<Route path="/Anime/:animeId" element={<Anime />} />
 						<Route path="/Studio" element={<Studio />} />
 					</Routes>
 					<Footer />

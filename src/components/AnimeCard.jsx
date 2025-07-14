@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const AnimeCard = ({ anime }) => {
 	return (
 		<Link
-			to="/anime"
+			to={`/anime/${anime?.id}`}
 			className="rounded-xl overflow-hidden w-48 h-72 my-4 md:mx-4 drop-shadow-sm drop-shadow-black flex flex-col transform hover:z-10 hover:[transform:scale3d(1.1,0.9,1)] transition-transform duration-300"
 		>
 			<img
