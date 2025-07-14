@@ -7,6 +7,7 @@ import { useCallback, useState } from "react";
 
 const Home = () => {
 	const [allAnime, setAllAnime] = useState(false);
+	const [genreName, setGenreName] = useState("");
 	const [animesByGenre, { data, loading, error }] = useLazyQuery(
 		GET_ALL_ANIME_BY_GENRE_QUERY
 	);
@@ -15,18 +16,27 @@ const Home = () => {
 	if (error) return `Error Message: ${error.message}`;
 
 	const handleData = useCallback(
-		(genreID) => {
+		(genreID, genreName) => {
 			if (genreID) {
 				setAllAnime(false);
+				setGenreName(genreName);
 				animesByGenre({ variables: { id: genreID } });
-			} else setAllAnime(true);
+			} else {
+				setAllAnime(true);
+				setGenreName("");
+			}
 		},
 		[animesByGenre]
 	);
 	return (
 		<div>
 			<Hero />
-			<AnimeCardHolder dataByGenre={data} allAnime={allAnime} />
+			<AnimeCardHolder
+				dataByGenre={data}
+				allAnime={allAnime}
+				genreName={genreName}
+				ifLoading={loading}
+			/>
 			<GenreList onSettingGenre={handleData} />
 		</div>
 	);

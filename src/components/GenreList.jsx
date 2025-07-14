@@ -8,8 +8,8 @@ const GenreList = ({ onSettingGenre }) => {
 	if (loading) return "Loading Genres ...";
 	if (error) return `Error: ${error.message}`;
 
-	const searchByGenre = (genreID) => {
-		onSettingGenre(genreID);
+	const searchByGenre = (genreID, genreName) => {
+		onSettingGenre(genreID, genreName);
 	};
 
 	return (
@@ -27,7 +27,7 @@ const GenreList = ({ onSettingGenre }) => {
 					)
 					.map((genre) => (
 						<Button
-							onClick={() => searchByGenre(genre.id)}
+							onClick={() => searchByGenre(genre.id, genre.name)}
 							key={genre.id}
 							buttName={genre.name}
 						/>

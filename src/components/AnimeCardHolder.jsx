@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import AnimeCard from "./AnimeCard";
 import { GET_ALL_ANIME_QUERY } from "../queries/Query";
 
-const AnimeCardHolder = ({ dataByGenre, allAnime }) => {
+const AnimeCardHolder = ({ dataByGenre, allAnime, genreName, ifLoading }) => {
 	const { data, loading, error } = useQuery(GET_ALL_ANIME_QUERY);
 
 	const [showCard, setShowCard] = useState(10);
@@ -13,7 +13,7 @@ const AnimeCardHolder = ({ dataByGenre, allAnime }) => {
 		setShowCard(10);
 	}, [dataByGenre, allAnime]);
 
-	// if (loading) return "Loading...";
+	if (ifLoading) return "Loading...";
 	if (error) return `Error Message: ${error.message}`;
 
 	// Choose source of anime data
@@ -26,8 +26,8 @@ const AnimeCardHolder = ({ dataByGenre, allAnime }) => {
 
 	return (
 		<div className="p-2 my-8">
-			<h2 className="text-2xl font-extrabold tracking-wide italic m-2">
-				Animes
+			<h2 className="text-2xl font-extrabold tracking-wide capitalize italic m-2">
+				{`${genreName} `}Animes:
 			</h2>
 			<div
 				className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8

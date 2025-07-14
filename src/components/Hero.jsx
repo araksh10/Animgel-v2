@@ -54,23 +54,23 @@ const Hero = () => {
 				{/* Carousel Anime Details */}
 				<div className="absolute top-0 left-0 w-full h-full  flex flex-col justify-center p-10 gap-6 text-white">
 					<h2 className="text-4xl md:text-5xl font-extrabold italic tracking-wide">
-						{anime.name}
+						{anime?.name}
 					</h2>
 
 					<div className="flex gap-6 text-sm md:text-base font-semibold opacity-80">
 						<span className="bg-slate-800 px-3 py-1 rounded-full">
-							{anime.studio.name}
+							{anime?.studio.name}
 						</span>
 						<span className="bg-slate-800 px-3 py-1 rounded-full">
-							{anime.runtime} min
+							{anime?.runtime} min
 						</span>
 						<span className="bg-slate-800 px-3 py-1 rounded-full">
-							Ep: {anime.episodes}
+							Ep: {anime?.episodes}
 						</span>
 					</div>
 
 					<p className="max-w-4xl text-sm md:text-base text-justify leading-relaxed z-20 bg-slate-800/70 p-4 rounded-2xl backdrop-blur-sm">
-						{anime.description.slice(0, 500)}...
+						{anime?.description.slice(0, 500)}...
 					</p>
 				</div>
 			</div>
