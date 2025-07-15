@@ -30,7 +30,7 @@ const AnimeCardHolder = ({ dataByGenre, allAnime, genreName, ifLoading }) => {
 				{`${genreName} `}Animes:
 			</h2>
 			<div
-				className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8
+				className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 justify-items-center-safe
             "
 			>
 				{animeList.slice(0, showCard).map((anime) => {

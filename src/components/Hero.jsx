@@ -53,7 +53,7 @@ const Hero = () => {
 
 				{/* Carousel Anime Details */}
 				<div className="absolute top-0 left-0 w-full h-full  flex flex-col justify-center p-10 gap-6 text-white">
-					<h2 className="text-4xl md:text-5xl font-extrabold italic tracking-wide">
+					<h2 className="text-4xl md:text-5xl font-extrabold italic tracking-wide p-4 rounded-full bg-slate-800/80 w-fit">
 						{anime?.name}
 					</h2>
 

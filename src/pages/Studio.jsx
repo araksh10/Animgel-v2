@@ -36,13 +36,13 @@ const Studio = () => {
 					src={studio?.logo}
 					alt={studio?.name}
 				/>
-				<p className="m-2">{studio?.details}</p>
+				<p className="m-4 text-justify">{studio?.details}</p>
 			</div>
 			<div>
 				<h4 className="text-xl font-bold italic mx-4 my-2">
 					Anime by {studio?.name}:
 				</h4>
-				<section className="flex flex-wrap">
+				<section className="flex flex-wrap mx-4">
 					{studio?.animes?.map((anime) => (
 						<AnimeCard key={anime.id} anime={anime} />
 					))}

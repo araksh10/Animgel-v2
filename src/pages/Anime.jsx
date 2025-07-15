@@ -52,7 +52,7 @@ const Anime = () => {
 					<h2 className="text-4xl font-extrabold mb-2">{anime?.name}</h2>
 					<p className="text-justify">{anime?.description}</p>
 				</div>
-				<div className="w-[40%] bg-white rounded-xl overflow-hidden mb-4">
+				<div className="w-[40%] bg-white rounded-xl overflow-hidden h-fit my-4">
 					<img src={anime?.image} alt={anime?.name} className="w-full" />
 				</div>
 			</div>
@@ -78,7 +78,8 @@ const Anime = () => {
 					{!anime?.trailer && <p>No trailer available.</p>}
 				</div>
 			</div>
-			Studio info
+
+			{/* Studio info */}
 			<div className="bg-gray-600 p-4 rounded-xl">
 				<div className="">
 					<h3 className="text-2xl font-semibold italic mb-2">Produced By:</h3>
@@ -99,12 +100,12 @@ const Anime = () => {
 									alt={studio.name}
 									className="w-20 h-20 object-cover rounded-full"
 								/>
-								<div>
-									<h4 className="text-xl font-bold">{studio.name}</h4>
-									<p>All anime by this studio:</p>
-								</div>
+								<h4 className="text-xl font-bold">{studio.name}</h4>
 							</Link>
-							<div className="flex flex-wrap list-disc list-inside">
+							<div className="mt-4">
+								<p>All anime by this studio:</p>
+							</div>
+							<div className="flex">
 								{studio.animes.slice(0, 3).map((anime) => (
 									<AnimeCard key={anime.id} anime={anime} />
 								))}

@@ -4,16 +4,16 @@ const AnimeCard = ({ anime }) => {
 	return (
 		<Link
 			to={`/anime/${anime?.id}`}
-			className="rounded-xl overflow-hidden w-48 h-72 my-4 md:mx-4 drop-shadow-sm drop-shadow-black flex flex-col transform hover:z-10 hover:[transform:scale3d(1.1,0.9,1)] transition-transform duration-300"
+			className="rounded-xl overflow-hidden w-36 h-60 md:w-48 md:h-72 my-4 mx-2 md:mx-4 drop-shadow-sm drop-shadow-black flex flex-col transform hover:z-10 hover:[transform:scale3d(1.1,0.9,1)] transition-transform duration-300"
 		>
 			<img
-				className="w-full h-55 object-cover"
-				src={anime.image}
-				alt={anime.name}
+				className="w-full h-45 md:h-55 object-cover"
+				src={anime?.image}
+				alt={anime?.name}
 			/>
 			<div className="bg-sky-600 text-center flex-1 flex flex-col justify-between p-2">
-				<h4 className="font-bold text-lg truncate">{anime.name}</h4>
-				{anime.genres && (
+				<h4 className="font-bold text-lg truncate">{anime?.name}</h4>
+				{anime?.genres && (
 					<p className="capitalize text-sm break-words line-clamp-2">
 						Genres: {anime.genres.map((genre) => genre.name).join(", ")}
 					</p>
