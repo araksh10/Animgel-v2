@@ -61,6 +61,20 @@ const GET_ANIME_QUERY = gql`
 	}
 `;
 
+const GET_ANIME_BY_NAME = gql`
+	query getAnimeByName($name: String!) {
+		animeByName(name: $name) {
+			id
+			name
+			image
+			genres {
+				id
+				name
+			}
+		}
+	}
+`;
+
 const GET_ALL_GENRE_QUERY = gql`
 	{
 		genres {
@@ -90,6 +104,7 @@ export {
 	GET_ALL_ANIME_QUERY,
 	GET_ALL_ANIME_BY_GENRE_QUERY,
 	GET_ANIME_QUERY,
+	GET_ANIME_BY_NAME,
 	GET_ALL_GENRE_QUERY,
 	GET_STUDIO_QUERY,
 };

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Anime from "./pages/Anime";
 import Home from "./pages/Home";
 import Studio from "./pages/Studio";
+import SearchResult from "./pages/SearchResult";
 // importing Apollo Client
 import { ApolloProvider } from "@apollo/client";
 import client from "./app/ApolloClient";
@@ -21,6 +22,7 @@ function App() {
 						<Route path="/Home" element={<Home />} />
 						<Route path="/Anime/:animeId" element={<Anime />} />
 						<Route path="/Studio/:studioId" element={<Studio />} />
+						<Route path="/Search/:searchKey" element={<SearchResult />} />
 					</Routes>
 					<Footer />
 				</div>

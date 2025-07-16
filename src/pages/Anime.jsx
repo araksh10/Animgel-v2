@@ -1,5 +1,5 @@
-import { useQuery, useLazyQuery } from "@apollo/client";
-import { GET_ANIME_QUERY, GET_STUDIO_QUERY } from "../queries/Query";
+import { useLazyQuery } from "@apollo/client";
+import { GET_STUDIO_QUERY } from "../queries/Query";
 import { useEffect } from "react";
 import AnimeCard from "../components/AnimeCard";
 import { Link, useParams } from "react-router-dom";
