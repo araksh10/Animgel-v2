@@ -1,14 +1,17 @@
 import "../styles/Logo.css";
 import Animgel from "../assets/Animgel.svg";
 import SearchIcon from "../assets/search.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Navbar = () => {
 	const [searchInput, setSearchInput] = useState("");
+	const navigate = useNavigate();
 
-	const handleChange = (e) => {
-		setSearchInput(e.target.value);
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter") {
+			navigate(`/Search/${searchInput}`);
+		}
 	};
 
 	return (
@@ -46,7 +49,9 @@ const Navbar = () => {
 					<input
 						className="bg-neutral-200 rounded-e-full text-black px-2"
 						type="text"
-						onChange={handleChange}
+						value={searchInput}
+						onChange={(e) => setSearchInput(e.target.value)}
+						onKeyDown={handleKeyDown}
 						placeholder="Type to search"
 						name="inputValue"
 					/>
