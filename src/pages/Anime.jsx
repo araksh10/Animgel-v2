@@ -5,6 +5,7 @@ import AnimeCard from "../components/AnimeCard";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAnime } from "../features/anime/AnimeSlice";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Anime = () => {
 	const { anime, isLoading, isError, error } = useSelector(
@@ -13,17 +14,18 @@ const Anime = () => {
 	const dispatch = useDispatch();
 	const { animeId } = useParams();
 
+	// Data fetching
 	useEffect(() => {
 		dispatch(fetchAnime(animeId));
 	}, [dispatch, animeId]);
 
-	// Step 2: Prepare lazy studio query
+	// Lazy studio query
 	const [
 		loadStudio,
 		{ data: dataStudio, loading: loadingStudio, error: errorStudio },
 	] = useLazyQuery(GET_STUDIO_QUERY);
 
-	// Step 3: Trigger studio load when anime data arrives
+	//  Trigger studio load when anime data arrives
 	useEffect(() => {
 		const studioId = anime?.studio?.id;
 
@@ -41,7 +43,7 @@ const Anime = () => {
 		return match && match[2].length === 11 ? match[2] : null;
 	};
 
-	if (isLoading) return <p>Loading anime...</p>;
+	if (isLoading) return <LoadingSpinner />;
 	if (isError) return <p className="text-red-500">Error: {error}</p>;
 
 	return (
@@ -52,8 +54,8 @@ const Anime = () => {
 					<h2 className="text-4xl font-extrabold mb-2">{anime?.name}</h2>
 					<p className="text-justify">{anime?.description}</p>
 				</div>
-				<div className="w-[40%] bg-white rounded-xl overflow-hidden h-fit my-4">
-					<img src={anime?.image} alt={anime?.name} className="w-full" />
+				<div className="w-fit bg-white rounded-xl overflow-hidden h-fit my-4">
+					<img src={anime?.image} alt={anime?.name} className="" />
 				</div>
 			</div>
 			{/* Anime trailer */}
@@ -83,7 +85,7 @@ const Anime = () => {
 			<div className="bg-gray-600 p-4 rounded-xl">
 				<div className="">
 					<h3 className="text-2xl font-semibold italic mb-2">Produced By:</h3>
-					{loadingStudio && <p>Loading studio info...</p>}
+					{loadingStudio && <LoadingSpinner />}
 					{errorStudio && (
 						<p className="text-red-500">
 							Error loading studio: {errorStudio.message}

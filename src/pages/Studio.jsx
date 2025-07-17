@@ -1,10 +1,9 @@
-import { useQuery } from "@apollo/client";
-import { GET_STUDIO_QUERY } from "../queries/Query";
 import AnimeCard from "../components/AnimeCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchStudio } from "../features/studio/StudioSlice";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Studio = () => {
 	const { studio, isLoading, isError, error } = useSelector(
@@ -17,11 +16,7 @@ const Studio = () => {
 		dispatch(fetchStudio(studioId));
 	}, [dispatch, studioId]);
 
-	// const { data, loading, error } = useQuery(GET_STUDIO_QUERY, {
-	// 	variables: { id: "686ec09df8b51c931fb9ccb5" },
-	// });
-
-	if (isLoading) return "Loading studio...";
+	if (isLoading) return <LoadingSpinner />;
 	if (isError) return `Error Loading Studio: ${error.message}`;
 	return (
 		<div>

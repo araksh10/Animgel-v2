@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_ALL_ANIME_QUERY } from "../queries/Query";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 const getRandomFive = (animes) => {
 	const shuffled = [...animes].sort(() => 0.5 - Math.random());
@@ -30,7 +31,7 @@ const Hero = () => {
 		return () => clearInterval(interval);
 	}, [carouselAnimes]);
 
-	if (loading) return "loading...";
+	if (loading) return <LoadingSpinner />;
 	if (error) return error.message;
 
 	if (carouselAnimes.length === 0) return null;

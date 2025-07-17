@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import AnimeCard from "./AnimeCard";
 import { GET_ALL_ANIME_QUERY } from "../queries/Query";
+import LoadingSpinner from "./LoadingSpinner";
 
 const AnimeCardHolder = ({ dataByGenre, allAnime, genreName, ifLoading }) => {
 	const { data, loading, error } = useQuery(GET_ALL_ANIME_QUERY);
@@ -13,7 +14,7 @@ const AnimeCardHolder = ({ dataByGenre, allAnime, genreName, ifLoading }) => {
 		setShowCard(10);
 	}, [dataByGenre, allAnime]);
 
-	if (ifLoading) return "Loading...";
+	if (loading) return <LoadingSpinner />;
 	if (error) return `Error Message: ${error.message}`;
 
 	// Choose source of anime data

@@ -1,11 +1,12 @@
 import { useQuery } from "@apollo/client";
 import Button from "./Button";
 import { GET_ALL_GENRE_QUERY } from "../queries/Query";
+import LoadingSpinner from "./LoadingSpinner";
 
 const GenreList = ({ onSettingGenre }) => {
 	const { data, loading, error } = useQuery(GET_ALL_GENRE_QUERY);
 
-	if (loading) return "Loading Genres ...";
+	if (loading) return <LoadingSpinner />;
 	if (error) return `Error: ${error.message}`;
 
 	const searchByGenre = (genreID, genreName) => {

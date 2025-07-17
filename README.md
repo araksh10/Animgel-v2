@@ -1,12 +1,64 @@
-# React + Vite
+# 🌸 Animgel (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Animgel** is a meticulously architected, fully responsive web application developed using **React.js** for the client interface, enhanced stylistically with **Tailwind CSS**, and functionally supported through data integration with a bespoke **GraphQL API**. This application serves as an exploratory platform for anime enthusiasts, enabling nuanced querying, genre-based segmentation, and seamless browsing of curated content.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Technology Stack
 
-## Expanding the ESLint configuration
+- ⚛️ **React.js** – Component-based UI construction
+- 🎨 **Tailwind CSS** – Utility-first CSS framework for rapid UI development
+- 🧰 **Redux Toolkit** – Scalable and maintainable state management
+- 🔮 **Apollo Client** – State management and GraphQL query orchestration
+- 📡 **GraphQL** – Custom API design for optimized data retrieval
+- 🚀 **Netlify** – Continuous deployment and hosting infrastructure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📸 Visual Demonstrations
+
+> ![Visual Demo](<Screenshot 2025-07-17 091051.png>) ![Visual Demo](<Screenshot 2025-07-17 090646.png>)
+
+---
+
+## 🌟 Functional Highlights
+
+- 🗂️ Dynamically rendered anime cards, populated via asynchronous GraphQL queries
+- 🎛️ Comprehensive filtering mechanisms based on genre and production studio
+- ⚡ UI performance optimized for low-latency rendering and minimal reflows
+- 🧩 Modular component structure facilitating code scalability and maintainability
+- 📱 Adaptive layout ensuring usability across a range of viewport dimensions and devices
+
+---
+
+## 🚀 Initialization Instructions
+
+```bash
+# Clone the repository to your local environment
+git clone https://github.com/araksh10/animgel-frontend.git
+
+# Install project dependencies via npm
+npm install
+
+# Launch the development server for real-time testing
+npm run dev
+```
+
+---
+
+## 🔗 Associated Backend Service
+
+The frontend interface communicates with a dedicated custom-built GraphQL backend service. Access the API repository via:
+👉 [Animgel API GitHub Repository](https://github.com/araksh10/Animgel-api-v2)
+
+---
+
+## 📫 Developer Profile
+
+**Abir Rakshit**
+Frontend Engineer | Full-Stack MERN Developer | Passionate Contributor to Otaku-Tech Culture
+[GitHub](https://github.com/araksh10) • [LinkedIn](https://linkedin.com/in/abir-rakshit) • [Live Site](https://animgel.netlify.app)
+
+---
+
+> _“Animgel is not merely a portfolio project; it embodies a confluence of narrative appreciation and technical articulation—crafted to honor the intricacies of anime culture through the lens of modern web development.”_
