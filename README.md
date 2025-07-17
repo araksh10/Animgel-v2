@@ -1,5 +1,14 @@
 # 🌸 Animgel (Frontend)
 
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/Redux_Toolkit-RTK-purple?style=for-the-badge&logo=redux&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-3.3.2-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/GraphQL-API-E10098?style=for-the-badge&logo=graphql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Deployed_on-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=for-the-badge" />
+</p>
+
 **Animgel** is a meticulously architected, fully responsive web application developed using **React.js** for the client interface, enhanced stylistically with **Tailwind CSS**, and functionally supported through data integration with a bespoke **GraphQL API**. This application serves as an exploratory platform for anime enthusiasts, enabling nuanced querying, genre-based segmentation, and seamless browsing of curated content.
 
 ---
