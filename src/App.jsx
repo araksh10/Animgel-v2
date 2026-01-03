@@ -1,7 +1,7 @@
 // importing components
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import MenuBar from './components/Menubar';
+import MenuBar from './components/MenuBar';
 
 // importing pages
 import Anime from "./pages/Anime";

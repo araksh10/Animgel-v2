@@ -11,8 +11,8 @@ const FanArt = () => {
             </div>
             <div>
                 <p className="font-bold">@username</p>
-                <img src={demoimage} alt="" className="max-w-100"/>
-                <section className="w-100 flex justify-between text-center my-2">
+                <img src={demoimage} alt="" className="md:max-w-100 max-w-full" />
+                <section className="md:w-100 w-full flex justify-between text-center my-2">
                     <span className="bg-gray-700 w-full">
                         Likes
                     </span>
