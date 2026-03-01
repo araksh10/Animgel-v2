@@ -13,12 +13,16 @@ import FanArt from "./pages/FanArt.jsx";
 import Merchandise from "./pages/Merchandise.jsx";
 
 // importing Apollo Client
-import { ApolloProvider } from "@apollo/client";
+import {ApolloProvider, gql, useQuery} from "@apollo/client";
 import client from "./app/ApolloClient";
 // importing React-Router-Dom
-import { BrowserRouter as BRouter, Route, Routes } from "react-router-dom";
+import {BrowserRouter as BRouter, Route, Routes} from "react-router-dom";
+import ProtectedLayout from "./pages/ProtectedLayout.jsx";
 
-function App() {
+
+function App({children}) {
+
+
 	return (
 		<ApolloProvider client={client}>
 			<BRouter>
@@ -26,6 +30,7 @@ function App() {
 					<Navbar />
                     <MenuBar />
 					<Routes>
+						<Route element={<ProtectedLayout />} />
 						<Route path="/" element={<Home />} />
 						<Route path="/Home" element={<Home />} />
 						<Route path="/Blog" element={<Blog />} />

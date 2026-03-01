@@ -17,7 +17,7 @@ const Navbar = () => {
 	return (
 		<div className="flex flex-col md:flex-row h-32 md:h-20 bg-sky-800">
 			<section className="flex flex-2 justify-center">
-				<Link to="/" className="abosolute left-0 mx-8">
+				<Link to="/" className="absolute left-0 mx-8">
 					<img className="size-18" src={Animgel} alt="logo" />
 				</Link>
 				<section className="my-2">
