@@ -20,8 +20,9 @@ function ProtectedLayout() {
 
     if (loading) return <Loader/> ;
     if (!data?.me) {
-        return <Navigate to="http:localhost:5174/login" replace />
+        return <Navigate to="http://localhost:5174/login" replace />
     }
+    console.log(data.me);
 
     return <Outlet />
 }

@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ALL_ANIME_QUERY } from "../queries/Query";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
+import {useNavigate} from "react-router-dom";
 
 const getRandomFive = (animes) => {
 	const shuffled = [...animes].sort(() => 0.5 - Math.random());
@@ -9,10 +10,17 @@ const getRandomFive = (animes) => {
 };
 
 const Hero = () => {
+	const navigate = useNavigate();
 	const { data, loading, error } = useQuery(GET_ALL_ANIME_QUERY);
 	const [carouselAnimes, setCarouselAnimes] = useState([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [fade, setFade] = useState(true);
+
+	// useEffect(() => {
+	// 	if (error) {
+	// 		window.location.replace("http://localhost:5174/login");
+	// 	}
+	// }, [error]);
 
 	useEffect(() => {
 		if (data?.animes?.length) {
@@ -21,6 +29,8 @@ const Hero = () => {
 	}, [data]);
 
 	useEffect(() => {
+		if (carouselAnimes?.length === 0) return;
+
 		const interval = setInterval(() => {
 			setFade(false);
 			setTimeout(() => {
